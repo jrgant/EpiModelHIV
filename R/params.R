@@ -516,7 +516,7 @@ param_msm <- function(nwstats,
   p$time.unit <- nwstats$time.unit
 
   intvars <- grep(names(p), pattern = ".int", fixed = TRUE)
-  p[intvars] <- lapply(p[intvars], FUN = function(x) round(x / p$time.unit))
+  p[intvars] <- lapply(p[intvars], FUN = function(x) x / p$time.unit)
 
   ratevars <- grep(names(p), pattern = ".rate", fixed = TRUE)
   p[ratevars] <- lapply(p[ratevars], FUN = function(x) x * p$time.unit)
